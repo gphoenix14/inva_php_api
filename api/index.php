@@ -37,6 +37,7 @@ $id       = isset($parts[1]) ? (int)$parts[1] : null;
 match (true) {
     $resource === 'auth'   => (new AuthController())->handle($method, $parts, $body),
     $resource === 'utenti' => (new UserController())->handle($method, $id, $body),
+   // $resource === 'email'  => (New EmailController())->handle($method,$parts, $body),
     $resource === ''       => Response::success(['endpoints' => ['/utenti', '/auth']], 'PhpApi attiva'),
     default                => Response::error('Risorsa non trovata', 404),
 };
